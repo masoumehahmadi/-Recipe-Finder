@@ -1,0 +1,10 @@
+/*.iconSearch{
+  color: #CFD8DC;
+}*/
+.inputBox{
+  color: black;
+  background-color: #ECEFF1;
+}
+.inputBox::placeholder{
+  color: #78909C;
+}

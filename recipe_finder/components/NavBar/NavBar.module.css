@@ -1,0 +1,7 @@
+.navbarContainer{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(45deg,#dcf0da,#c2debf);
+}
+.nav{
+  color: #263238;
+}

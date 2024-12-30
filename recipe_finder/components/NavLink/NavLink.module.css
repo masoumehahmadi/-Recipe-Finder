@@ -1,0 +1,11 @@
+.active {
+  color: red;
+}
+.link {
+  color: black;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-color: black;
+  text-underline-offset: 6px;
+  transition: color, scale 200ms ease-in-out;
+}
