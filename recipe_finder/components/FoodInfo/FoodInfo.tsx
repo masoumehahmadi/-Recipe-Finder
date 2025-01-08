@@ -7,11 +7,20 @@ import { IoCheckboxOutline } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import DOMPurify from "isomorphic-dompurify";
 import styles from "./FoodInfo.module.css";
-import idSearchProps from "./../../app/information/[DetailsFood]/type";
+import {idSearchProps} from "./../../app/information/[DetailsFood]/type";
 import NavLink from "../NavLink/NavLink";
 
+type stepsProps = {
+  number:number;
+  step:string;
+};
+type ingredient = {
+  name:string;
+  original:string;
+};
+
 const addFavorite = (foodId: number) => {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favorites = JSON.parse(localStorage.getItem("favorites")|| "[]") ;
   if (!favorites.includes(foodId)) {
     favorites.push(foodId);
     localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -23,23 +32,21 @@ export default function FoodInfo({
   id,
   image,
   title,
-  webTitle,
   summary,
   extendedIngredients,
   servings,
   readyInMinutes,
   sourceUrl,
-  steps,
+  analyzedInstructions,
 }: idSearchProps) {
   const cleanContent = DOMPurify.sanitize(summary);
-
   return (
     <div className={styles.containerCards}>
       <div className={styles.card}>
         <div className={styles.imageWrapper}>
           <Image
             src={image}
-            alt={webTitle}
+            alt={title}
             width={500}
             height={400}
             className={styles.image}
@@ -53,8 +60,8 @@ export default function FoodInfo({
         <div className={styles.ingredientsPart}>
           <div className={styles.ingredients}>
             {extendedIngredients &&
-              extendedIngredients.map((ingredient) => (
-                <div className={styles.ingredientStep} key={ingredient.id}>
+              extendedIngredients.map((ingredient:ingredient,index:number) => (
+                <div className={styles.ingredientStep} key={index}>
                   <IoCheckboxOutline className={styles.ingredientsvg} />
                   <span>{ingredient.name}:</span>
                   <span>{ingredient.original}</span>
@@ -83,7 +90,7 @@ export default function FoodInfo({
           </div>
         </div>
         <div className={styles.analyzedInstructions}>
-          {steps.map((step) => (
+          {analyzedInstructions.map((step:stepsProps) => (
             <div key={step.number}>
               Step {step.number}: {step.step}
             </div>

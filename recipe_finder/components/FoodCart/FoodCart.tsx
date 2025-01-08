@@ -4,7 +4,7 @@ import styles from "./FoodCart.module.css";
 import Image from "next/image";
 
 type FoodCartProps = {
-  id: string;
+  id: number;
   title: string;
   image: string;
 };

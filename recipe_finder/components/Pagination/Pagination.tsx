@@ -1,8 +1,19 @@
-import styles from "./Pagination.module.css"
+import styles from "./Pagination.module.css";
 import { MdNavigateBefore } from "react-icons/md";
 import { MdNavigateNext } from "react-icons/md";
+interface PaginationProps {
+  totalResults: number;
+  number: number;
+  offset: number;
+  onPageChange: (newOffset: number) => void;
+}
 
-const Pagination = ({ totalResults, number, offset, onPageChange }:string) => {
+const Pagination = ({
+  totalResults,
+  number,
+  offset,
+  onPageChange,
+}: PaginationProps) => {
   const totalPages = Math.ceil(totalResults / number);
   const currentPage = Math.floor(offset / number) + 1;
 
@@ -20,12 +31,22 @@ const Pagination = ({ totalResults, number, offset, onPageChange }:string) => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.btn} onClick={handlePrev} disabled={currentPage === 1}>
+      <button
+        className={styles.btn}
+        onClick={handlePrev}
+        disabled={currentPage === 1}
+      >
         <MdNavigateBefore className={styles.btnIcone} />
       </button>
-      <span className={styles.titleBtn} >page {currentPage} of {totalPages}</span>
-      <button className={styles.btn} onClick={handleNext} disabled={currentPage === totalPages}>
-        <MdNavigateNext className={styles.btnIcone}  />
+      <span className={styles.titleBtn}>
+        page {currentPage} of {totalPages}
+      </span>
+      <button
+        className={styles.btn}
+        onClick={handleNext}
+        disabled={currentPage === totalPages}
+      >
+        <MdNavigateNext className={styles.btnIcone} />
       </button>
     </div>
   );

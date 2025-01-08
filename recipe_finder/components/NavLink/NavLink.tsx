@@ -1,9 +1,13 @@
-
 "use client"
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./NavLink.module.css";
-const NavLink = ({ children, href }) => {
+interface NavLinkProps {
+  children: React.ReactNode; 
+  href: string; 
+}
+
+const NavLink = ({ children, href }: NavLinkProps) => {
   const path = usePathname();
   return (
     <Link

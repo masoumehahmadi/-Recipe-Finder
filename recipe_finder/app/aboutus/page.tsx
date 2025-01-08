@@ -1,5 +1,4 @@
 import NavBar from "@/components/NavBar/NavBar";
-
 import styles from "./about.module.css";
 export default function aboutus() {
   return (

@@ -6,14 +6,15 @@ import filterData from "./../../public/filter.json";
 import NavLink from "../NavLink/NavLink";
 import { useRouter } from "next/navigation";
 
-export default function NavFilter({ query }: string) {
+type FilterOptions = "diet" | "Cuisines";
+export default function NavFilter({query}: {query:string}) {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("");
+  const [modalContent, setModalContent] = useState<string[]>([]);
   const [titleOption, setTitleOption] = useState("");
   const router = useRouter();
 
 
-  const handleOptionClick = (option:string) => {
+  const handleOptionClick = (option:FilterOptions) => {
     const contentFilter = filterData[option];
     setModalContent(contentFilter || []);
     setTitleOption(option)

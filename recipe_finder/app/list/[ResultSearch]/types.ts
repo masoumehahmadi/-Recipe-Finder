@@ -1,7 +1,5 @@
-export type ResultSearchProps={
-  list:{
-    id: string;
-    title: string;
-    image:string;
-  }[];
-}
+export type ResultSearchProps = {
+  id: number;
+  title: string;
+  image: string;
+};

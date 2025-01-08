@@ -1,8 +1,7 @@
-
 import NavBar from "@/components/NavBar/NavBar";
 import styles from "./DetailsFood.module.css";
-import { idSearchProps } from "./type";
 import FoodInfo from "@/components/FoodInfo/FoodInfo";
+import { idSearchProps } from "./type";
 const getDetails = async (DetailsFood: string) => {
   try {
     const response = await fetch(
@@ -12,7 +11,7 @@ const getDetails = async (DetailsFood: string) => {
       return {};
     }
     const resultResponse = await response.json();
-    console.log(resultResponse)
+
     return resultResponse;
   } catch (error) {
     console.error("Fetch error:", error);
@@ -26,9 +25,13 @@ export default async function DetailsFood({
   params: idSearchProps;
 }) {
   const { DetailsFood }: idSearchProps = params;
+
   const list = await getDetails(DetailsFood);
-  const steps = list?.analyzedInstructions[0]?.steps||[]
- 
+  const steps =
+    list?.analyzedInstructions && list.analyzedInstructions.length > 0
+      ? list.analyzedInstructions[0].steps
+      : [];
+
   return (
     <div>
       <div className={styles.container}>
@@ -37,14 +40,13 @@ export default async function DetailsFood({
           <FoodInfo
             id={list.id}
             image={list.image}
-            webTitle={list.webTitle}
             title={list.title}
             summary={list.summary}
             extendedIngredients={list.extendedIngredients}
             servings={list.servings}
             readyInMinutes={list.readyInMinutes}
+            analyzedInstructions={steps}
             sourceUrl={list.spoonacularSourceUrl}
-            steps={steps}
           />
         </div>
       </div>

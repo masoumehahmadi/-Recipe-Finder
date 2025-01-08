@@ -1,11 +1,15 @@
-"use client";
-
+"use client"
 import FoodCart from "@/components/FoodCart/FoodCart";
 import NavBar from "@/components/NavBar/NavBar";
 import styles from "./favorite.module.css";
 import { useState, useEffect } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 
+interface FavoriteItem {
+  id: number;
+  title: string;
+  image: string;
+}
 const getInfo = async (DetailsFood: number) => {
   try {
     const response = await fetch(
@@ -23,16 +27,13 @@ const getInfo = async (DetailsFood: number) => {
   }
 };
 
-export default function favorite() {
-  const [favorites, setFavorites] = useState([]);
+export default function Favorite() {
+  const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     const fetchFavorites = async () => {
-      const favoritePromises = storedFavorites.map((id) => getInfo(id));
-
+      const favoritePromises = storedFavorites.map((id:number) => getInfo(id));
       const favoriteData = await Promise.all(favoritePromises);
-
       const formattedFavorites = favoriteData.map((item) => ({
         id: item.id,
         title: item.title,
@@ -45,12 +46,9 @@ export default function favorite() {
     fetchFavorites();
   }, []);
 
-  const handleRemoveFavorite = (itemId) => {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    console.log(favorites.filter((id) => Number(id) !== itemId));
-
-    favorites = favorites.filter((id) => Number(id) !== itemId);
+  const handleRemoveFavorite = (itemId:number) => {
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    favorites = favorites.filter((id:number) => Number(id) !== itemId);
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setFavorites((prevData) => prevData.filter((item) => item.id !== itemId));
   };

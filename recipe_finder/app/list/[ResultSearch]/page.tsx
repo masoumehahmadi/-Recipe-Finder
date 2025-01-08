@@ -7,7 +7,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import NavFilter from "@/components/NavFilter/NavFilter";
 import Pagination from "@/components/Pagination/Pagination";
 
-const getResult = async ({ ResultSearch, offsetNumber }: string) => {
+const getResult = async ({ ResultSearch, offsetNumber }: { ResultSearch: string; offsetNumber: number }) => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_SPOONACULAR_URL}/recipes/complexSearch?query=${ResultSearch}&offset=${offsetNumber}&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -29,13 +29,13 @@ const getResult = async ({ ResultSearch, offsetNumber }: string) => {
 export default function ResultSearch({
   params,
 }: {
-  params: { ResultSearch: ResultSearchProps };
+  params: { ResultSearch: string };
 }) {
   const { ResultSearch } = params;
   const [list, setList] = useState([]);
-  const [offsetNumber, setOffsetNumber] = useState(0);
+  const [offsetNumber, setOffsetNumber] = useState<number>(0);
   const number = 10;
-  const [totalResults, setTotalResults] = useState(0);
+  const [totalResults, setTotalResults] = useState<number>(0);
 
 
   useEffect(() => {
@@ -55,10 +55,10 @@ export default function ResultSearch({
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <NavBar />
-          <NavFilter query={ResultSearch} />
+          <NavFilter query={ResultSearch.toLowerCase()} />
           <div className={styles.containerCards}>
             <div className={styles.card}>
-              {list?.map((food, index) => (
+              {list?.map((food:ResultSearchProps) => (
                 <FoodCart
                   key={food.id}
                   id={food.id}
