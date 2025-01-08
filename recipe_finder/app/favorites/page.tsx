@@ -54,24 +54,6 @@ export default function favorite() {
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setFavorites((prevData) => prevData.filter((item) => item.id !== itemId));
   };
-  /*  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    const fetchFavorites = async () => {
-      const favoritePromises = storedFavorites.map((id) => getInfo(id));
-
-      const favoriteData = await Promise.all(favoritePromises);
-
-      const formattedFavorites = favoriteData.map((item) => ({
-        title: item.title,
-        image: item.image,
-      }));
-
-      setFavorites(formattedFavorites);
-    };
-
-    fetchFavorites();
-  }, []);*/
   return (
     <div>
       <div className={styles.container}>

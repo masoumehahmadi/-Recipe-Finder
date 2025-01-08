@@ -55,7 +55,7 @@ export default function FoodInfo({
             {extendedIngredients &&
               extendedIngredients.map((ingredient) => (
                 <div className={styles.ingredientStep} key={ingredient.id}>
-                  <IoCheckboxOutline />
+                  <IoCheckboxOutline className={styles.ingredientsvg} />
                   <span>{ingredient.name}:</span>
                   <span>{ingredient.original}</span>
                 </div>

@@ -19,7 +19,7 @@
 }
 .card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
+  font-size: 15px;
   padding: 30px;
   line-height: 33px;
   border-radius: 20px;
@@ -56,11 +56,12 @@
     max-width: 400px;
   }
   .card {
-    font-size: 18px;
+    font-size: 14px;
     padding: 30px;
     line-height: 33px;
     width: 350px;
     height: 400px;
+    margin-top: 40px;
 
   }
 }
@@ -69,7 +70,8 @@
     max-width: 250px;
   }
   .card {
-    font-size: 15px;
+    font-size: 12px;
+    margin-top: 40px;
     padding: 30px;
     line-height: 23px;
     width: 210px;
