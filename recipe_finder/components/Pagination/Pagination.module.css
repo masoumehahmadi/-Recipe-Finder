@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 25px;
+  gap: 20px;
+  color: #444;
+}
+.btnIcone{
+  width: 30px;
+  height: 30px;
+
+}
+.titleBtn{
+  font-size: 18px;
+}

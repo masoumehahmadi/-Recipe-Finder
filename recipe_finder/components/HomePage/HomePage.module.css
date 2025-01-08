@@ -1,10 +1,177 @@
-/*.iconSearch{
-  color: #CFD8DC;
-}*/
-.inputBox{
-  color: black;
-  background-color: #ECEFF1;
+.container {
+  max-width: 1450px;
+  margin: 0 auto;
 }
-.inputBox::placeholder{
-  color: #78909C;
+.wrapper {
+  width: inherit;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f1f8e9;
+}
+.searchBox {
+  position: relative;
+}
+.imagePart {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.img {
+  z-index: -1;
+  width: 950px;
+  height: 400px;
+  object-fit: cover;
+}
+.searchForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 0 20px;
+}
+.titleInput {
+  font-size: 35px;
+  font-weight: bold;
+}
+.inputPart {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: #eceff1;
+  border-radius: 8px;
+}
+.inputBox {
+  font-size: 15px;
+  background-color: #eceff1;
+  color: black;
+}
+.inputBox::placeholder {
+  color: #78909c;
+}
+.btnSearch {
+  font-size: 14px;
+  background: linear-gradient(45deg, #dcf0da, #c2debf);
+  color: #263238;
+}
+@media (max-width: 1480px) {
+  .container {
+    max-width: 1200px;
+  }
+  .titleInput {
+    font-size: 30px;
+  }
+  .inputPart {
+    width: 60%;
+  }
+  .inputBox {
+    font-size: 15px;
+  }
+  .btnSearch {
+    font-size: 12px;
+    padding: 26px;
+  }
+}
+@media (max-width: 1300px) {
+  .container {
+    max-width: 1000px;
+  }
+  .img {
+    width: 800px;
+    height: 350px;
+  }
+  .inputBox {
+    font-size: 12px;
+  }
+  .btnSearch {
+    font-size: 10px;
+  }
+}
+@media (max-width: 1050px) {
+  .container {
+    max-width: 800px;
+  }
+  .img {
+    width: 600px;
+    height: 350px;
+  }
+  .inputPart {
+    width: 90%;
+    height: auto;
+    gap: 1px;
+  }
+  .inputBox {
+    font-size: 12px;
+  }
+  .btnSearch {
+    font-size: 10px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    max-width: 600px;
+  }
+  .img {
+    width: 400px;
+    height: 280px;
+  }
+  .titleInput {
+    font-size: 20px;
+  }
+  .inputBox {
+    font-size: 9px;
+    padding: 18px;
+  }
+  .btnSearch {
+    font-size: 9px;
+    padding: 18px;
+  }
+}
+@media (max-width: 620px) {
+  .container {
+    max-width: 400px;
+  }
+  .img {
+    width: 330px;
+    height: 220px;
+  }
+  .titleInput {
+    font-size: 17px;
+  }
+  .inputBox {
+    font-size: 6px;
+    padding: 15px;
+  }
+  .btnSearch {
+    font-size: 8px;
+    padding: 13px;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    max-width: 250px;
+  }
+  .img {
+    width: 200px;
+    height: 150px;
+  }
+  .titleInput {
+    font-size: 10px;
+  }
+  .inputBox {
+    font-size: 3.5px;
+    padding: 10px;
+  }
+  .btnSearch {
+    font-size: 3px;
+    padding: 9px;
+  }
 }

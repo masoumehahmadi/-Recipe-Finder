@@ -8,7 +8,7 @@ const NavLink = ({ children, href }) => {
   return (
     <Link
       href={href}
-      className={[styles.path === href ? styles.active : ""].join(" ")}
+      className={[path === href ? styles.active : ""].join(" ")}
     >
       {children}
     </Link>

@@ -1,11 +1,15 @@
 .active {
-  color: red;
-}
-.link {
   color: black;
-  cursor: pointer;
-  text-decoration-line: underline;
-  text-decoration-color: black;
-  text-underline-offset: 6px;
-  transition: color, scale 200ms ease-in-out;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media (max-width: 850px) {
+  .active {
+    font-size: 16px;
+  }
+}
+@media (max-width: 620px) {
+  .active {
+    font-size: 12px;
+  }
 }

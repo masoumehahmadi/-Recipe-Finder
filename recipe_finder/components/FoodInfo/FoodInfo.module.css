@@ -1,0 +1,191 @@
+.containerCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.card {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1.5fr 0.75fr 0.5fr 1fr 50px;
+  grid-template-areas:
+    "image image"
+    "summary summary"
+    "ingredient another"
+    "steps steps "
+    "btn btn";
+  justify-items: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  color: inherit;
+  padding: 30px;
+  margin: 20px;
+}
+
+.imageWrapper {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 20px;
+  border-bottom: 0.5px solid #dde2dc;
+}
+.image {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+.title {
+  grid-area: title;
+  font-size: 25px;
+  font-weight: 600;
+  padding-top: 20px;
+  text-align: center;
+  margin: 10px;
+  color: black;
+}
+.content {
+  grid-area: summary;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid #dde2dc;
+}
+.anotherDetail {
+  grid-area: another;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.ingredientStep {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+.ingredientsPart {
+  grid-area: ingredient;
+  color: #444;
+}
+
+.anotherinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+}
+.infoDetail {
+  font-size: 15px;
+  text-align: center;
+}
+.infosvg {
+  width: 20px;
+  height: 20px;
+}
+.analyzedInstructions {
+  grid-area: steps;
+  border-top: 0.5px solid #dde2dc;
+  margin-top: 20px;
+  padding-top: 20px;
+  color: #444;
+}
+.btnFavorite {
+  color: white;
+  grid-area: btn;
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  justify-content: center;
+  gap: 8px;
+  background: #b6d3b1;
+}
+@media (max-width: 1480px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 1300px) {
+  .card {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.8fr 0.25fr 0.25fr 0.75fr 50px;
+    padding: 10px 30px;
+    margin: 20px;
+  }
+  .imageWrapper {
+    width: 90%;
+    height: auto;
+  }
+  .image {
+    width: 90%;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .content {
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #dde2dc;
+  }
+  .ingredientStep {
+    font-size: 14px;
+    line-height: 28px;
+    gap: 6px;
+  }
+  .anotherinfo {
+    gap: 6px;
+  }
+  .infoDetail {
+    font-size: 13px;
+  }
+  .infosvg {
+    width: 17px;
+    height: 17px;
+  }
+  .analyzedInstructions {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .container {
+    max-width: 800px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    max-width: 600px;
+  }
+}
+@media (max-width: 620px) {
+  .container {
+    max-width: 400px;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    max-width: 250px;
+  }
+}

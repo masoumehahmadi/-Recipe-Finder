@@ -1,0 +1,41 @@
+.container {
+  max-width: 1450px;
+  margin: 0 auto;
+}
+.wrapper {
+  position: relative;
+  width: inherit;
+  background-color: #f1f8e9;
+  padding-bottom: 30px;
+}
+@media (max-width: 1480px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 1300px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1050px) {
+  .container {
+    max-width: 800px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    max-width: 600px;
+  }
+}
+@media (max-width: 620px) {
+  .container {
+    max-width: 400px;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    max-width: 250px;
+  }
+
+}

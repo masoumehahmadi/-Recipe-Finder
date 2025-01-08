@@ -1,37 +1,32 @@
-import { useRouter } from "next/router";
+"use client";
+import { useRouter } from "next/navigation";
 import styles from "./FoodCart.module.css";
+import Image from "next/image";
 
 type FoodCartProps = {
   id: string;
   title: string;
-  readyInMinutes: string;
   image: string;
-  summary: string;
 };
 
-const FoodCart = ({
-  id,
-  title,
-  readyInMinutes,
-  image,
-  summary,
-}: FoodCartProps) => {
+const FoodCart = ({ id, title, image }: FoodCartProps) => {
   const router = useRouter();
-
   return (
-    <div className={styles.card}
-     onClick={() => router.push(`/${id}`)}>
+    <div className={styles.card}>
       {image && (
         <div className={styles.imageContainer}>
-          <img src={image} alt={title} className={styles.image} />
+          <Image src={image} alt={title} width={80}
+            height={50} className={styles.imageCart} />
         </div>
       )}
-
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
-        <div className={styles.info}>
-          <span>{readyInMinutes}</span>
-        </div>
+        <button
+          className={styles.btnMore}
+          onClick={() => router.push(`/information/${id}`)}
+        >
+          Show more
+        </button>
       </div>
     </div>
   );
